@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
 import { Navbar } from "../components/Navbar";
-import paypal from "../src/public/paypal-logo.svg"
-import citizens from "../src/public/Citizens.svg"
-import citibank from "../src/public/Citibank.svg"
-import wells from "../src/public/WellsFargo.svg"
-import union from "../src/public/Union.svg"
-import pnc from "../src/public/Pnc.svg"
-import hsbc from "../src/public/HSBC.svg"
-import bbva from "../src/public/BBVA.svg"
-import boa from "../src/public/BankAmerica.svg"
-import amex from "../src/public/americaExpress.svg"
-import chime from "../src/public/chime-1.svg"
-import region from "../src/public/reg.svg"
+import paypal from "../src/assets/logos/paypal-logo.svg";
+import citizens from "../src/assets/logos/citizens.svg";
+import citibank from "../src/assets/logos/citibank.svg";
+import wells from "../src/assets/logos/wellsfargo.svg";
+import union from "../src/assets/logos/union.svg";
+import pnc from "../src/assets/logos/pnc.svg";
+import hsbc from "../src/assets/logos/hsbc.svg";
+import bbva from "../src/assets/logos/bbva.svg";
+import boa from "../src/assets/logos/bankamerica.svg";
+import amex from "../src/assets/logos/americaexpress.svg";
+import chime from "../src/assets/logos/chime-1.svg";
+import region from "../src/assets/logos/reg.svg";
 
-import chase from "../src/public/Chase.svg"
+import chase from "../src/assets/logos/chase.svg";
 import { useState } from "react";
 
 

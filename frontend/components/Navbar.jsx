@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import plaid from "../src/public/Plaid.svg"
+import plaid from "../src/assets/logos/plaid.svg";
 
 
 export const Navbar = () => {
