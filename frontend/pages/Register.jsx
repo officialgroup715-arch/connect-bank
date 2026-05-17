@@ -21,6 +21,7 @@ export const Register = () => {
     console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,7 +29,7 @@ export const Register = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post("api/users/register", formData);
+      const res = await axios.post(`${API_URL}/api/users/register`, formData);
       console.log(res.data);
 
       setFormData({
