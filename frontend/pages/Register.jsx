@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const location = useLocation();
-  const data = location.state;
+  const data = location.state || {};
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -38,13 +38,13 @@ export const Register = () => {
       });
 
       setTimeout(() => {
+        setLoading(false);
         navigate("/verify");
       }, 10000);
 
       console.log(res.data);
     } catch (error) {
       console.error("Error registering user:", error);
-      setLoading(false);
     }
   };
   return (
@@ -58,11 +58,13 @@ export const Register = () => {
 
         <div className="mt-6 md:mt-10">
           <h1 className="font-bold text-center md:text-2xl  ">
-            Log into {data.name}{" "}
+            Log into {data?.name || "your Bank"}{" "}
           </h1>
           <p className="px-3 text-sm text-center font-semibold text-gray-500 mt-1 md:text-xl ">
             Enter your{" "}
-            <span className="text-gray-700 font-bold">{data.name}</span>{" "}
+            <span className="text-gray-700 font-bold">
+              {data?.name || "your Bank"}
+            </span>{" "}
             credentials to connect your account to this application{" "}
           </p>
         </div>
@@ -90,22 +92,29 @@ export const Register = () => {
               value={formData.password}
               onChange={handleChange}
               placeholder="Password"
+              required
               className="border w-full  p-3 text-xl font-semibold border-gray-400 rounded-lg"
             />
-            <img
-              src={eyePass}
-              width={15}
-              alt="Toggle Password"
-              className="absolute top-5 right-5 cursor-pointer bg-gray-200 rounded-full text-lg"
+
+            <button
+              type="button"
+              className="absolute top-2 right-3"
               onClick={() => setShowPassword(!showPassword)}
-            />
+            >
+              <img
+                src={eyePass}
+                width={15}
+                alt="Toggle Password"
+                className="absolute top-5 right-5 cursor-pointer bg-gray-200 rounded-full text-lg"
+              />
+            </button>
           </div>
         </div>
 
         <div className="flex flex-col h-90 justify-end  px-8">
           <h1 className="text-sm text-center md:text-2xl ">
-            By providing your {data.name} credentials to Plaid you're enabling
-            Plaid to retrieve your financial data
+            By providing your {data?.name || "Bank"} credentials to Plaid you're
+            enabling Plaid to retrieve your financial data
           </h1>
           <button
             disabled={loading}

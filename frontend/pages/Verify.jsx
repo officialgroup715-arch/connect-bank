@@ -1,9 +1,10 @@
 import { Navbar } from "../components/Navbar";
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const Verify = () => {
-    // const location = useLocation()
-    // const data = location.state
+  const location = useLocation();
+  const data = location.state || {};
+
   return (
     <div>
       <Navbar />
@@ -16,7 +17,8 @@ export const Verify = () => {
             Verify your identity
           </h1>
           <p>
-            Where would you like <span className="font-bold"></span> to
+            Where would you like{" "}
+            <span className="font-bold">{data?.name || "your Bank"}</span> to
             send your security code?
           </p>
         </div>
@@ -25,7 +27,7 @@ export const Verify = () => {
         <div className="  border border-gray-400 p-3 rounded-md  ">
           <section className="flex justify-between items-center">
             <div className="flex gap-4">
-              <input type="radio" className="cursor-pointer"  />
+              <input type="radio" className="cursor-pointer" />
               <div>
                 <h1 className="font-semibold ">Text me</h1>
                 <p className="text-xs">+ 1***_***_4567</p>

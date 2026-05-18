@@ -6,9 +6,12 @@ import cors from "cors"
 
 const app = express()
 dotenv.config()
+console.log(process.env.CLIENT_URL);
 app.use(cors({
-  origin: [process.env.CLIENT_URL],
-  credentials: true,
+  origin: [process.env.CLIENT_URL, "http://localhost:5173"],
+   methods: ["GET", "POST", "PUT", "DELETE"],
+   allowedHeaders: ["Content-Type", "Authorization"]
+
 }))
 
 const PORT = process.env.PORT || 8000
