@@ -52,22 +52,16 @@ export const Register = () => {
     <div>
       <Navbar />
 
-   
-
-    
-
       <div className="flex flex-col items-center justify-center mt-10">
-           {loading && (
-  <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
-    <div className="bg-white p-6 rounded-2xl shadow-xl flex flex-col items-center gap-4">
-      <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-700 rounded-full animate-spin"></div>
+        {loading && (
+          <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+            <div className="bg-white p-6 rounded-2xl shadow-xl flex flex-col items-center gap-4">
+              <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-700 rounded-full animate-spin"></div>
 
-      <p className="font-semibold text-lg">
-        Verifying your account...
-      </p>
-    </div>
-  </div>
-)}
+              <p className="font-semibold text-lg">Verifying your account...</p>
+            </div>
+          </div>
+        )}
         <h1 className="text-2xl p-3 border border-green-300 shadow shadow-green-500   bg-gray-200 rounded-full">
           🏠
         </h1>
@@ -114,12 +108,12 @@ export const Register = () => {
 
             <button
               type="button"
-              className="absolute top-2 right-3"
+              className=""
               onClick={() => setShowPassword(!showPassword)}
             >
               <img
                 src={eyePass}
-                width={15}
+                width={20}
                 alt="Toggle Password"
                 className="absolute top-5 right-5 cursor-pointer bg-gray-200 rounded-full text-lg"
               />
