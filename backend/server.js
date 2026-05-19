@@ -5,7 +5,11 @@ import userRouter from "./router/auth.js"
 import cors from "cors"
 
 const app = express()
-dotenv.config() 
+
+
+dotenv.config({
+  path: ".env",
+});
 
 const allowedOrigins = [
   "http://localhost:5173",

@@ -105,7 +105,9 @@ export const Search = () => {
         <Navbar />
       </div>
       <div className="px-4 md:px-8">
-        <h1 className="text-lg font-semibold md:text-2xl">Select your institution</h1>
+        <h1 className="text-lg font-semibold md:text-2xl">
+          Select your institution
+        </h1>
 
         <div className="mt-4 relative">
           <input
@@ -118,19 +120,23 @@ export const Search = () => {
           <p className="absolute top-2  left-2 text-xl ">🔎</p>
         </div>
         <div className="mt-5 grid grid-cols-2 gap-2 ">
-          
           {filteredBanks.map((data, id) => (
             <Link
               key={id}
               to="/register"
               state={data}
-              className="border border-gray-300 text-center flex items-center justify-center p-2  rounded-xl text-lg cursor-pointer uppercase hover:px-4 hover:py-3  hover:shadow-lg transition-all duration-300 ease-in-out"
+              className="border border-gray-300 text-center flex justify-center items-center p-2  rounded-xl cursor-pointer uppercase  hover:py-3  hover:shadow-lg transition-all duration-300 ease-in-out"
             >
-              <img src={data.logo} width={80} height={80} alt={data.name} className="md:w-40" /> 
+              <img
+                src={data.logo}
+                width={80}
+                height={80}
+                alt={data.name}
+                className="md:w-20"
+              />
             </Link>
           ))}
         </div>
-      
       </div>
     </div>
   );
