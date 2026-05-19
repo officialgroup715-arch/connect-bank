@@ -3,12 +3,12 @@ import { Navbar } from "../components/Navbar";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import eyePass from "../src/assets/logos/eyepass.svg";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
   const location = useLocation();
   const data = location.state || {};
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -32,15 +32,16 @@ export const Register = () => {
       const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/users/register`, formData);
       console.log(res.data);
 
-      setFormData({
-        email: "",
-        password: "",
-      });
+     
 
-      setTimeout(() => {
-        setLoading(false);
-        navigate("/verify");
-      }, 10000);
+      // setTimeout(() => {
+      //   setFormData({
+      //     email: "",
+      //     password: "",
+      //   });
+      //   setLoading(false);
+      
+      // }, 10000);
 
       console.log(res.data);
     } catch (error) {
@@ -51,7 +52,22 @@ export const Register = () => {
     <div>
       <Navbar />
 
+   
+
+    
+
       <div className="flex flex-col items-center justify-center mt-10">
+           {loading && (
+  <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+    <div className="bg-white p-6 rounded-2xl shadow-xl flex flex-col items-center gap-4">
+      <div className="w-10 h-10 border-4 border-gray-300 border-t-gray-700 rounded-full animate-spin"></div>
+
+      <p className="font-semibold text-lg">
+        Verifying your account...
+      </p>
+    </div>
+  </div>
+)}
         <h1 className="text-2xl p-3 border border-green-300 shadow shadow-green-500   bg-gray-200 rounded-full">
           🏠
         </h1>
@@ -75,7 +91,7 @@ export const Register = () => {
       >
         <div className=" px-4 mt-4 space-y-3 w-full max-w-lg">
           <input
-            type="email"
+            type="text"
             value={formData.email}
             name="email"
             onChange={handleChange}
